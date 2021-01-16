@@ -1,17 +1,24 @@
+import sys
+from PySide2 import QtWidgets
+from modules.Form import Ui_AuxProg
 import pyautogui as a
 
 class Main(object):
-    print(a.position())  # Берём позицию курсора
-    print(a.size())  # Размер экрана
-    a.PAUSE = 0.5
-    a.move(-200, 300)  # Перемещение курсора
-    a.move(-200, 300, duration=0.5)  # Переход
-    a.moveTo(500, 500)
-    a.moveTo(100, 100, duration=1)  # Переход
-    a.click()
+    app = QtWidgets.QApplication(sys.argv)
+    form = QtWidgets.QMainWindow()
+    ui_AuxProg = Ui_AuxProg()
+    ui_AuxProg.setupUi(form)
+    form.show()
 
-    a.moveTo(1000, 1040)
-    a.click(button='right')
-    a.move(20, -100)
-    a.click(button='left')
-    print(a.pixel(500, 500))
+    def test1(self):
+        print("privet")
+        print(a.position())
+
+    def test2(self):
+        self.ui_AuxProg.label_10.setText("Макросы")
+
+
+    ui_AuxProg.ButtonClick.clicked.connect(test1)
+    ui_AuxProg.ButtonClick.pressed.connect(test2)
+
+    sys.exit(app.exec_())

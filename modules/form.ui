@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>AuxProg</class>
+ <widget class="QMainWindow" name="AuxProg">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -23,12 +23,15 @@
    <cursorShape>WhatsThisCursor</cursorShape>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>AuxProg</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../../Pictures/botton.png</normaloff>../../../Pictures/botton.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">QMainWindow {
-	
-	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 178, 102, 255), stop:0.55 rgba(235, 148, 61, 255), stop:0.98 rgba(0, 0, 0, 255), stop:1 rgba(0, 0, 0, 0));
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(123, 123, 123, 255), stop:1 rgba(50, 50, 50, 255));
 }
 
 .QPushButton {
@@ -77,6 +80,9 @@
       <height>51</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(30, 30, 30);</string>
+    </property>
    </widget>
    <widget class="QTextEdit" name="textEdit_2">
     <property name="geometry">
@@ -86,6 +92,9 @@
       <width>91</width>
       <height>51</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(30, 30, 30);</string>
     </property>
    </widget>
    <widget class="QTextEdit" name="textEdit_3">
@@ -97,6 +106,9 @@
       <height>51</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(30, 30, 30);</string>
+    </property>
    </widget>
    <widget class="QTextEdit" name="textEdit_4">
     <property name="geometry">
@@ -106,6 +118,9 @@
       <width>191</width>
       <height>81</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(30, 30, 30);</string>
     </property>
    </widget>
    <widget class="QTextEdit" name="textEdit_5">
@@ -117,6 +132,9 @@
       <height>81</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(30, 30, 30);</string>
+    </property>
    </widget>
    <widget class="QTextEdit" name="textEdit_6">
     <property name="geometry">
@@ -127,6 +145,9 @@
       <height>71</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(30, 30, 30);</string>
+    </property>
    </widget>
    <widget class="QTextEdit" name="textEdit_7">
     <property name="geometry">
@@ -136,6 +157,18 @@
       <width>171</width>
       <height>71</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <italic>true</italic>
+      <bold>true</bold>
+      <underline>true</underline>
+      <stylestrategy>PreferAntialias</stylestrategy>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(30, 30, 30);</string>
     </property>
    </widget>
    <widget class="QLabel" name="label">
@@ -284,22 +317,35 @@
    <widget class="QLabel" name="label_12">
     <property name="geometry">
      <rect>
-      <x>280</x>
+      <x>250</x>
       <y>320</y>
-      <width>71</width>
+      <width>111</width>
       <height>41</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>12</pointsize>
+      <pointsize>20</pointsize>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(0, 0, 127);</string>
+     <string notr="true">color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>AuxProg</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ButtonClick">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>160</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
     </property>
    </widget>
   </widget>
@@ -322,5 +368,38 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>ButtonClick</sender>
+   <signal>clicked()</signal>
+   <receiver>textEdit_5</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>304</x>
+     <y>188</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>428</x>
+     <y>188</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ButtonClick</sender>
+   <signal>clicked()</signal>
+   <receiver>label</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>297</x>
+     <y>192</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>130</x>
+     <y>33</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
