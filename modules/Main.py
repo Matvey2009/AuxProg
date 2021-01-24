@@ -1,24 +1,26 @@
-import sys
-from PySide2 import QtWidgets
+
+from PySide2 import QtCore
 from modules.Form import Ui_AuxProg
 import pyautogui as a
 
-class Main(object):
-    app = QtWidgets.QApplication(sys.argv)
-    form = QtWidgets.QMainWindow()
-    ui_AuxProg = Ui_AuxProg()
-    ui_AuxProg.setupUi(form)
-    form.show()
+class Main(Ui_AuxProg):
+    """ Код автокликера """
+    def __init__(self):
+        super().__init__()
+        self.click_x = 0
+        self.click_y = 0
+        self.setupUi(self)
+        self.show()
+        # Сигналы - Слоты
+        self.click_status = False
+        self.ButtonClick.clicked.connect(self.Button_Click)
 
-    def test1(self):
-        print("privet")
-        print(a.position())
+    def Button_Click(self):
+        self.click_status = not self.click_status
+        if self.click_status:
+            self.autoclick()
 
-    def test2(self):
-        self.ui_AuxProg.label_10.setText("Макросы")
-
-
-    ui_AuxProg.ButtonClick.clicked.connect(test1)
-    ui_AuxProg.ButtonClick.pressed.connect(test2)
-
-    sys.exit(app.exec_())
+    def autoclick(self):
+        while True:
+            a.tripleClick()
+            print("x")
