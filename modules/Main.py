@@ -1,9 +1,9 @@
 
 from PySide2 import QtCore, QtWidgets
-from modules.Form import Ui_AuxProg
+from modules.Form import Ui_Form
 import pyautogui as a
 
-class Main(Ui_AuxProg, QtWidgets.QMainWindow):
+class Main(Ui_Form, QtWidgets.QWidget):
     """ Код автокликера """
     def __init__(self):
         super().__init__()
@@ -11,13 +11,14 @@ class Main(Ui_AuxProg, QtWidgets.QMainWindow):
         self.click_y = 0
         self.setupUi(self)
         self.installEventFilter(self)
+
         self.show()
         # Сигналы - Слоты
         self.timer = QtCore.QTimer(self)
         self.timer.setInterval(1)
         self.timer.timeout.connect(self.autoclick)
         self.click_status = False
-        self.ButtonClick.clicked.connect(self.Button_Click)
+        self.pushButton.clicked.connect(self.Button_Click)
 
     def Button_Click(self):
         """ Переключатель Автоклика """
@@ -25,10 +26,10 @@ class Main(Ui_AuxProg, QtWidgets.QMainWindow):
         if self.click_status:
             self.timer.start()
             self.autoclick()
-            self.ButtonClick.setText("Stop")
+            self.pushButton.setText("Stop")
         else:
             self.timer.stop()
-            self.ButtonClick.setText("Start")
+            self.pushButton.setText("Start")
 
     def autoclick(self):
         """ Автоклик """
@@ -43,3 +44,4 @@ class Main(Ui_AuxProg, QtWidgets.QMainWindow):
         if e.key():
             self.label_5.setText(str(chr(e.key())))
         e.assept()
+
